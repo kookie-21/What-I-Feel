@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,7 @@
 
     <!-- Start Screen -->
     <div class="container visible" id="startContainer">
+        <h1>My Feelings</h1>
         <button id="playBtn">Read slowly 🎞️</button>
     </div>
 
@@ -30,7 +31,9 @@
             And maybe that's what hurts the most —
             loving someone who's slowly drifting away, but still not having the heart to let go.
         </p>
-        <button class="nextBtn" data-next="messageContainer2">Next ➜</button>
+        <div class="button-container">
+            <button class="nextBtn" data-next="messageContainer2">Next ➜</button>
+        </div>
     </div>
 
     <!-- Second Message -->
@@ -59,8 +62,10 @@
             knowing I love you deeply, yet still feeling like I'm slowly becoming
             too much for the person I need the most.
         </p>
-        <button class="backBtn" data-prev="messageContainer1">⬅ Back</button>
-        <button class="nextBtn" data-next="messageContainer3">Next ➜</button>
+        <div class="button-container">
+            <button class="backBtn" data-prev="messageContainer1">⬅ Back</button>
+            <button class="nextBtn" data-next="messageContainer3">Next ➜</button>
+        </div>
     </div>
 
     <!-- Third Message -->
@@ -87,8 +92,10 @@
             still talking, still caring, still feeling everything,
             while pretending I'm getting used to the distance.
         </p>
-        <button class="backBtn" data-prev="messageContainer2">⬅ Back</button>
-        <button class="nextBtn" data-next="messageContainer4">Next ➜</button>
+        <div class="button-container">
+            <button class="backBtn" data-prev="messageContainer2">⬅ Back</button>
+            <button class="nextBtn" data-next="messageContainer4">Next ➜</button>
+        </div>
     </div>
 
     <!-- Fourth Message -->
@@ -111,8 +118,10 @@
         <div class="quote">
             "Love does not consist in gazing at each other, but in looking outward together in the same direction." — Antoine de Saint-Exupéry, The Little Prince
         </div>
-        <button class="backBtn" data-prev="messageContainer3">⬅ Back</button>
-        <button class="nextBtn" data-next="messageContainer5">Next ➜</button>
+        <div class="button-container">
+            <button class="backBtn" data-prev="messageContainer3">⬅ Back</button>
+            <button class="nextBtn" data-next="messageContainer5">Next ➜</button>
+        </div>
     </div>
 
     <!-- Fifth Message -->
@@ -127,8 +136,10 @@
             but far enough that I'm left questioning where we stand. And yet, even in that fragile space, my heart chooses you. Even when I doubt myself,
             even when I'm scared, even when the silence stretches between us, I still feel you. And I still want you.
         </p>
-        <button class="backBtn" data-prev="messageContainer4">⬅ Back</button>
-        <button class="nextBtn" data-next="messageContainer6">Next ➜</button>
+        <div class="button-container">
+            <button class="backBtn" data-prev="messageContainer4">⬅ Back</button>
+            <button class="nextBtn" data-next="messageContainer6">Next ➜</button>
+        </div>
     </div>
 
     <!-- Sixth Message -->
@@ -151,13 +162,16 @@
             I will always love you, and I will always choose you.
         </p>
 
-        <button class="backBtn" data-prev="messageContainer5">⬅ Back</button>
-        <!-- Heart Button -->
-        <button id="heartBtn">💖 Click Me 💖</button>
+        <div class="button-container">
+            <button class="backBtn" data-prev="messageContainer5">⬅ Back</button>
+            <button id="heartBtn">💖 Click Me 💖</button>
+        </div>
     </div>
 
     <!-- Background Music -->
-    <audio id="bgMusic" preload="auto" src="your-music-file.mp3"></audio>
+    <audio id="bgMusic" preload="auto" loop>
+        <!-- Music will be loaded by JavaScript -->
+    </audio>
 
     <script src="script.js"></script>
 </body>
