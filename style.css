@@ -95,6 +95,9 @@ body::before {
     text-align: left;
     padding: 0 8px;
     word-wrap: break-word;
+    /* Ensure text doesn't get cut off */
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 /* Quote styling */
@@ -109,6 +112,7 @@ body::before {
     width: 100%;
     text-align: left;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    overflow-wrap: break-word;
 }
 
 /* Button container for better spacing */
@@ -163,6 +167,7 @@ button:active {
     text-align: left;
     padding: 0 8px;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+    overflow-wrap: break-word;
 }
 
 /* Start screen specific styling */
@@ -259,4 +264,15 @@ html, body {
 .container {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+}
+
+/* Additional text visibility fixes */
+#messageContainer2,
+#messageContainer3 {
+    padding-bottom: 60px; /* Extra padding for messages 2 and 3 */
+}
+
+#messageContainer2 .message,
+#messageContainer3 .message {
+    margin-bottom: 30px; /* More space between paragraphs */
 }
