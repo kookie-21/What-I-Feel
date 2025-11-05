@@ -17,13 +17,13 @@ body {
     color: #f8f1e7;
     overflow-x: hidden;
     position: relative;
-    padding: 20px 0;
+    padding-top: 10px;
 }
 
 /* Soft film grain texture */
 body::before {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -45,7 +45,7 @@ body::before {
     z-index: 1;
 }
 
-/* Main container */
+/* Main container - FIXED POSITIONING */
 .container {
     text-align: left;
     max-width: 95%;
@@ -56,9 +56,10 @@ body::before {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: auto;
-    padding: 30px 15px;
-    margin-top: 20px;
+    padding: 20px 15px 40px;
+    margin-top: 0;
+    position: relative;
+    min-height: 100vh;
 }
 
 /* Hidden & visible states */
@@ -76,17 +77,18 @@ body::before {
     display: flex;
 }
 
-/* Message text */
+/* Message text - BETTER VISIBILITY */
 .message {
-    font-size: 1.1em;
+    font-size: 1.15em;
     line-height: 1.7;
     font-style: italic;
     color: #f7e9d4;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
     margin-bottom: 25px;
     width: 100%;
     text-align: left;
-    padding: 0 5px;
+    padding: 0 8px;
+    word-wrap: break-word;
 }
 
 /* Quote styling */
@@ -95,35 +97,37 @@ body::before {
     margin: 20px 0;
     padding: 0 15px;
     color: #e8d5b5;
-    font-size: 1em;
-    line-height: 1.5;
-    border-left: 2px solid rgba(232, 213, 181, 0.3);
+    font-size: 1.05em;
+    line-height: 1.6;
+    border-left: 2px solid rgba(232, 213, 181, 0.4);
     width: 100%;
     text-align: left;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 /* Button styling */
 button {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
     color: #f7e9d4;
-    padding: 14px 35px;
-    font-size: 1em;
+    padding: 16px 40px;
+    font-size: 1.1em;
     font-family: 'Cinzel', serif;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    backdrop-filter: blur(4px);
-    margin: 8px 5px;
-    min-width: 140px;
+    backdrop-filter: blur(6px);
+    margin: 10px 5px;
+    min-width: 150px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 button:active {
     background: rgba(255, 255, 255, 0.25);
-    transform: scale(0.98);
-    box-shadow: 0 0 15px rgba(255, 240, 210, 0.3);
+    transform: scale(0.95);
+    box-shadow: 0 0 20px rgba(255, 240, 210, 0.4);
 }
 
 /* Button container for better spacing */
@@ -131,78 +135,91 @@ button:active {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 12px;
+    margin-top: 25px;
     width: 100%;
+    padding: 0 10px;
 }
 
 /* Final message styling */
 .final-message {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-top: 20px;
+    font-size: 1.15em;
+    line-height: 1.7;
+    margin-top: 25px;
     color: #f9e9d8;
     font-style: italic;
     width: 100%;
     text-align: left;
+    padding: 0 8px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 /* Start screen specific styling */
 #startContainer {
     justify-content: center;
-    min-height: 80vh;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 0;
 }
 
 #playBtn {
-    font-size: 1.2em;
-    padding: 16px 45px;
+    font-size: 1.3em;
+    padding: 18px 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 /* Heart button special styling */
 #heartBtn {
-    background: rgba(255, 182, 193, 0.2);
-    border: 1px solid rgba(255, 182, 193, 0.4);
+    background: rgba(255, 182, 193, 0.25);
+    border: 1px solid rgba(255, 182, 193, 0.6);
+    color: #ffd1dc;
+}
+
+/* Ensure text doesn't get cut off */
+.container > *:first-child {
+    margin-top: 10px;
 }
 
 /* Small screen adjustments */
 @media (max-width: 380px) {
     .message {
-        font-size: 1em;
-        line-height: 1.6;
+        font-size: 1.05em;
+        line-height: 1.65;
     }
     
     .quote {
-        font-size: 0.95em;
+        font-size: 1em;
         padding: 0 12px;
     }
     
     button {
-        padding: 12px 25px;
-        font-size: 0.95em;
-        min-width: 120px;
+        padding: 14px 30px;
+        font-size: 1.05em;
+        min-width: 140px;
     }
     
     #playBtn {
-        font-size: 1.1em;
-        padding: 14px 35px;
+        font-size: 1.2em;
+        padding: 16px 40px;
     }
     
     .container {
-        padding: 25px 10px;
+        padding: 15px 12px 35px;
     }
 }
 
 /* Very small screen adjustments */
 @media (max-width: 320px) {
     .message {
-        font-size: 0.95em;
-        line-height: 1.5;
+        font-size: 1em;
+        line-height: 1.6;
     }
     
     button {
-        padding: 10px 20px;
-        font-size: 0.9em;
-        min-width: 110px;
+        padding: 12px 25px;
+        font-size: 1em;
+        min-width: 130px;
     }
     
     .button-group {
@@ -212,12 +229,23 @@ button:active {
     
     .button-group button {
         width: 90%;
-        max-width: 200px;
+        max-width: 220px;
+    }
+    
+    .container {
+        padding: 12px 10px 30px;
     }
 }
 
-/* Prevent horizontal scrolling */
+/* Prevent horizontal scrolling and ensure vertical space */
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+    height: 100%;
+}
+
+/* Ensure containers don't overflow */
+.container {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
