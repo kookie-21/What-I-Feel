@@ -1,38 +1,45 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Italiana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Italiana&display=swap');
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    padding: 0;
     min-height: 100vh;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     background: radial-gradient(circle at center, #3b3a30 0%, #1a1818 100%);
     font-family: 'Italiana', serif;
     color: #f8f1e7;
     overflow-x: hidden;
     position: relative;
+    padding: 20px 0;
 }
 
-    /* Soft film grain texture */
-    body::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image: url('https://www.transparenttextures.com/patterns/noise.png');
-        opacity: 0.15;
-        pointer-events: none;
-    }
+/* Soft film grain texture */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/noise.png');
+    opacity: 0.15;
+    pointer-events: none;
+}
 
 /* Vignette shadow */
 .fade-overlay {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.6) 100%);
     pointer-events: none;
     z-index: 1;
@@ -40,120 +47,177 @@ body {
 
 /* Main container */
 .container {
-    text-align: center;
-    max-width: 850px;
-    width: 85%;
+    text-align: left;
+    max-width: 95%;
+    width: 100%;
     z-index: 2;
-    transition: opacity 1.5s ease, transform 1.5s ease;
+    transition: opacity 0.8s ease, transform 0.8s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
-    position: absolute;
-    top: 200px; /* <-- added margin from top */
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-
+    justify-content: flex-start;
+    min-height: auto;
+    padding: 30px 15px;
+    margin-top: 20px;
 }
 
 /* Hidden & visible states */
 .hidden {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
     pointer-events: none;
+    display: none;
 }
 
 .visible {
     opacity: 1;
     transform: translateY(0);
     pointer-events: all;
+    display: flex;
 }
 
 /* Message text */
 .message {
-    font-size: 1.35em;
-    line-height: 2;
+    font-size: 1.1em;
+    line-height: 1.7;
     font-style: italic;
     color: #f7e9d4;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-    margin-bottom: 40px;
-    max-width: 700px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    margin-bottom: 25px;
     width: 100%;
+    text-align: left;
+    padding: 0 5px;
 }
 
 /* Quote styling */
 .quote {
     font-style: normal;
-    margin: 25px 0;
-    padding: 0 20px;
+    margin: 20px 0;
+    padding: 0 15px;
     color: #e8d5b5;
-    font-size: 1.1em;
-    line-height: 1.6;
+    font-size: 1em;
+    line-height: 1.5;
     border-left: 2px solid rgba(232, 213, 181, 0.3);
+    width: 100%;
+    text-align: left;
 }
 
 /* Button styling */
 button {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 40px;
+    border-radius: 30px;
     color: #f7e9d4;
-    padding: 16px 55px;
-    font-size: 1.4em;
+    padding: 14px 35px;
+    font-size: 1em;
     font-family: 'Cinzel', serif;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     text-transform: uppercase;
-    backdrop-filter: blur(6px);
-    margin: 5px;
+    backdrop-filter: blur(4px);
+    margin: 8px 5px;
+    min-width: 140px;
 }
 
-    button:hover {
-        background: rgba(255, 255, 255, 0.25);
-        transform: scale(1.08);
-        box-shadow: 0 0 25px rgba(255, 240, 210, 0.3);
-    }
+button:active {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(0.98);
+    box-shadow: 0 0 15px rgba(255, 240, 210, 0.3);
+}
+
+/* Button container for better spacing */
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
 
 /* Final message styling */
 .final-message {
-    font-size: 1.5em;
-    line-height: 1.8;
+    font-size: 1.1em;
+    line-height: 1.6;
     margin-top: 20px;
     color: #f9e9d8;
     font-style: italic;
+    width: 100%;
+    text-align: left;
 }
 
-/* 📱 Mobile view */
-@media (max-width: 600px) {
+/* Start screen specific styling */
+#startContainer {
+    justify-content: center;
+    min-height: 80vh;
+}
+
+#playBtn {
+    font-size: 1.2em;
+    padding: 16px 45px;
+}
+
+/* Heart button special styling */
+#heartBtn {
+    background: rgba(255, 182, 193, 0.2);
+    border: 1px solid rgba(255, 182, 193, 0.4);
+}
+
+/* Small screen adjustments */
+@media (max-width: 380px) {
     .message {
-        font-size: 1.1em;
-        line-height: 1.8;
-        padding: 0 10px;
-    }
-
-    .quote {
         font-size: 1em;
-        padding: 0 15px;
-        margin: 20px 0;
-    }
-
-    .final-message {
-        font-size: 1.2em;
         line-height: 1.6;
     }
-
+    
+    .quote {
+        font-size: 0.95em;
+        padding: 0 12px;
+    }
+    
     button {
+        padding: 12px 25px;
+        font-size: 0.95em;
+        min-width: 120px;
+    }
+    
+    #playBtn {
         font-size: 1.1em;
-        padding: 12px 40px;
+        padding: 14px 35px;
     }
-
+    
     .container {
-        width: 95%;
-        padding: 15px;
+        padding: 25px 10px;
     }
+}
+
+/* Very small screen adjustments */
+@media (max-width: 320px) {
+    .message {
+        font-size: 0.95em;
+        line-height: 1.5;
+    }
+    
+    button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+        min-width: 110px;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .button-group button {
+        width: 90%;
+        max-width: 200px;
+    }
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
